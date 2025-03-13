@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-import { auth } from "../../services/firebase";
+import { auth } from "../../services/firebase"; // Ensure this import is correct
+import { Auth } from "firebase/auth"; // Import the correct Auth type
 import { useAuthState } from "react-firebase-hooks/auth";
 import * as S from "./styles";
 import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth as unknown as Auth);
   const navigate = useNavigate();
-  const [user] = useAuthState(auth);
 
   const getShortenedName = (fullName: string | null): string => {
     if (!fullName) {

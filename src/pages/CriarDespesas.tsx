@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import * as S from "../components/styles";
+import * as S from "./styles";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../services/firebase';
-import http from '../http';
 
 const CriarDespesas = () => {
   const [user] = useAuthState(auth);

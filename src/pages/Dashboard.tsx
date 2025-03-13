@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import * as S from "../components/styles";
+import * as S from "./styles";
 import despesasMock from "../mocks/despesas.json";
 import ChatGemini from '../components/chat-gemini/ChatGemini';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../services/firebase';
+import { getAuth, Auth } from 'firebase/auth';
+
+const auth = getAuth();
 import http from '../http';
 
 type Despesa = {
@@ -18,7 +20,7 @@ type Despesa = {
 
 const Dashboard = () => {
   const [despesas, setDespesas] = useState<Despesa[]>([]); // Inicializa com um array vazio, não com o mock
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth as unknown as Auth);
 
   useEffect(() => {
     const fetchDespesas = async () => {
