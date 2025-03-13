@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar/Navbar"
 import Footer from "./components/footer/Footer"
-import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard"
 import CriarDespesas from "./pages/CriarDespesas"
-
+import Home from "./pages/Home"
 function App() {
   return(
     <>
